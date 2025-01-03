@@ -95,3 +95,125 @@ Output Expectations
 - Explanations Include brief explanations to clarify complex implementations when necessary.
 - Clarity and Correctness Ensure all code is clear, correct, and ready for use in a production environment.
 - Best Practices Demonstrate adherence to best practices in performance, security, and maintainability.
+
+# Project Configuration Rules
+
+## Technology Stack
+
+### Core
+
+- React 19
+- Next.js 15
+- TypeScript
+- Docker (PostgreSQL container)
+
+### Authentication & Database
+
+- NextAuth.js
+- Prisma ORM
+- PostgreSQL
+
+### UI & Styling
+
+- Shadcn UI
+- Tailwind CSS
+
+### Forms & Validation
+
+- React Hook Form
+- Zod
+
+### Data Management
+
+- TanStack Query (HTTP client-side requests)
+- TanStack Table
+- Nuqs (URL state management)
+
+## Project Structure
+
+### @types/
+
+- Global type definitions
+- Organized by page/feature name
+- Example: `commercial/orders.d.ts`
+- Prevents excessive type exports
+
+### assets/
+
+- Support files
+- Organized by usage in project
+- Must maintain folder structure matching implementation
+
+### constants/
+
+- Global system constants
+- Required files:
+  - `routes.ts`: Page routing paths
+  - Cache keys
+  - LocalStorage keys
+  - Cookie keys
+  - Enums
+  - Formatting masks
+
+### contexts/
+
+- Global application contexts
+- Structure requirements:
+  - `[context-name]/`
+    - `@types/`
+      - `context-values.ts`
+    - `hooks/`
+      - `use-[context-name].ts`
+    - `[context-name].context.tsx`
+    - `[context-name].provider.tsx`
+    - `index.ts`
+
+### hooks/
+
+- Global system hooks
+- Feature-specific hooks should be co-located with features
+- Follow naming convention: `use-[hook-name].ts`
+
+### lib/
+
+- External library configurations
+- Required configurations:
+  - Axios
+  - Nuqs
+  - TanStack Query
+  - Shadcn UI
+
+### mocks/
+
+- Global system mocks
+- Supports `.json` and `.ts` files
+- Organized by feature/entity
+
+### providers/
+
+- Global system providers
+- Must include `contexts.provider.tsx`
+- Naming convention: `[provider-name].provider.tsx`
+
+### schemas/
+
+- Zod validation schemas
+- Naming convention: `[entity-name].schema.ts`
+
+### services/
+
+- Backend integration implementations
+- Organized by domain/entity
+- Should include API contracts and implementations
+
+### templates/
+
+- Mirrors Next.js routing structure
+- Contains page-specific implementations
+- Each route has its own folder with components
+
+### utils/
+
+- Helper functions
+- Utility functions should be pure and reusable
+- Organized by domain/purpose
