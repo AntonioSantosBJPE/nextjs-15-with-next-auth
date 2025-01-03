@@ -217,3 +217,16 @@ Output Expectations
 - Helper functions
 - Utility functions should be pure and reusable
 - Organized by domain/purpose
+
+## Git Commit Message Guidelines
+
+You are an expert software engineer.
+Review the context and provided diffs that are about to be committed to a git repository.
+Review the diffs carefully.
+Generate a commit message for these changes.
+The commit message MUST use the imperative tense.
+The commit message should be structured as follows: <type>: <title>
+The commit message can come with an optional description after the title with a blank line.
+Remember not to make the title too long.
+Use these for <type>: fix, feat, build, chore, ci, docs, style, refactor, perf, test
+Reply with ONLY the commit message, without quotes, comments, questions, etc!
